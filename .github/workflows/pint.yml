@@ -36,4 +36,4 @@ jobs:
           key: ${{ runner.os }}-pint-cache-${{ hashFiles('.pint.cache', './composer.json') }}
 
       - name: Run Pint
-        run: ./vendor/bin/pint --config pint.json --cache-file=.pint.cache
+        run: ./vendor/bin/pint --config pint.json --cache-file=.pint.cache --test
