@@ -1,26 +1,23 @@
-# ![Laravel Nova Flexible Content](https://github.com/whitecube/nova-flexible-content/raw/master/title.png)
+# ![Laravel Nova Flexible Content](https://github.com/wmt-digital-dev/nova-flexible-content/raw/master/title.png)
 
 ![](https://img.shields.io/github/release/whitecube/nova-flexible-content.svg?style=flat)
 [![](https://img.shields.io/packagist/dt/whitecube/nova-flexible-content.svg?colorB=green&style=flat)](https://packagist.org/packages/whitecube/nova-flexible-content)
-[![](https://img.shields.io/github/license/whitecube/nova-flexible-content.svg?style=flat)](https://github.com/whitecube/nova-flexible-content/blob/master/LICENSE)
+[![](https://img.shields.io/github/license/whitecube/nova-flexible-content.svg?style=flat)](https://github.com/wmt-digital-dev/nova-flexible-content/blob/master/LICENSE)
 
 An easy & complete Flexible Field for Laravel Nova, perfect for repeated and flexible field groups.
 
 ![Laravel Nova Flexible Content in action](https://user-images.githubusercontent.com/9298484/164532562-6e4e4179-8a53-470c-97c8-237e9a2c2ebb.gif)
 
-## We are looking for someone to help us maintain this package!
+## Disclaimer
 
-We'd love to accept someone who uses this package a lot to help us review and merge incoming PRs. Shoot us a message at hello@whitecube.be if you're willing to help!
-
-## Quick start
-
-Here's a very condensed guide to get you started asap.
-See the full docs at [https://whitecube.github.io/nova-flexible-content](https://whitecube.github.io/nova-flexible-content)
+This package is an independent fork of Laravel Nova Flexible Content, which is developed independently.
+Thanks to the [original author](https://github.com/wmt-digital-dev/nova-flexible-content) for developing the original package.
+You can create issue, but we only maintain this package to meet our needs, so any functionality that we don't personally require may be rejected.
 
 ### Install
 
 ```
-composer require whitecube/nova-flexible-content
+composer require wmt/nova-flexible-content
 ```
 
 ### Usage
@@ -39,7 +36,7 @@ Layouts can be added using the following method on your Flexible fields:
 The `$name` parameter is used to store the chosen layout in the field's value. Choose it wisely, you'll probably use it to identify the layouts in your application.
 
 ```php
-use Whitecube\NovaFlexibleContent\Flexible;
+use Wmt\NovaFlexibleContent\Flexible;
 
 /**
  * Get the fields displayed by the resource.
@@ -91,7 +88,7 @@ Laravel 7 brings custom casts to the table, and flexible content fields are the 
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Whitecube\NovaFlexibleContent\Value\FlexibleCast;
+use Wmt\NovaFlexibleContent\Value\FlexibleCast;
 
 class MyModel extends Model
 {
@@ -101,7 +98,7 @@ class MyModel extends Model
 }
 ```
 
-By default, the `FlexibleCast` class will collect basic `Layout` instances. If you want to map the layouts into [Custom Layout instances](https://github.com/whitecube/nova-flexible-content#custom-layout-classes), it is also possible. First, create a custom flexible cast by running `php artisan flexible:cast MyFlexibleCast`. This will create the file in the `App\Casts` directory.
+By default, the `FlexibleCast` class will collect basic `Layout` instances. If you want to map the layouts into [Custom Layout instances](https://github.com/wmt-digital-dev/nova-flexible-content#custom-layout-classes), it is also possible. First, create a custom flexible cast by running `php artisan flexible:cast MyFlexibleCast`. This will create the file in the `App\Casts` directory.
 
 Then easily map your custom layout classes to the proper keys:
 
@@ -159,15 +156,15 @@ Tell the field how to store and retrieve its content by creating your own Resolv
 
 ### Usage with nova-page
 
-Maybe you heard of one of our other packages, [nova-page](https://github.com/whitecube/nova-page), which is a Nova Tool that allows to edit static pages such as an _"About"_ page (or similar) without having to declare a model for it individually. More often than not, the Flexible Content Field comes in handy. Don't worry, both packages work well together! First create a [nova page template](https://github.com/whitecube/nova-page#creating-templates) and add a [flexible content](https://github.com/whitecube/nova-flexible-content#adding-layouts) to the template's fields.
+Maybe you heard of one of our other packages, [nova-page](https://github.com/whitecube/nova-page), which is a Nova Tool that allows to edit static pages such as an _"About"_ page (or similar) without having to declare a model for it individually. More often than not, the Flexible Content Field comes in handy. Don't worry, both packages work well together! First create a [nova page template](https://github.com/whitecube/nova-page#creating-templates) and add a [flexible content](https://github.com/wmt-digital-dev/nova-flexible-content#adding-layouts) to the template's fields.
 
-As explained in the documentation, you can [access nova-page's static content](https://github.com/whitecube/nova-page#accessing-the-data-in-your-views) in your blade views using `{{ Page::get('attribute') }}`. When requesting the flexible content like this, it returns a raw JSON string describing the flexible content, which is of course not very useful. Instead, you can simply implement the `Whitecube\NovaFlexibleContent\Concerns\HasFlexible` trait on your page Templates, which will expose the `Page::flexible('attribute')` facade method and will take care of the flexible content's transformation.
+As explained in the documentation, you can [access nova-page's static content](https://github.com/whitecube/nova-page#accessing-the-data-in-your-views) in your blade views using `{{ Page::get('attribute') }}`. When requesting the flexible content like this, it returns a raw JSON string describing the flexible content, which is of course not very useful. Instead, you can simply implement the `Wmt\NovaFlexibleContent\Concerns\HasFlexible` trait on your page Templates, which will expose the `Page::flexible('attribute')` facade method and will take care of the flexible content's transformation.
 
 ```php
 namespace App\Nova\Templates;
 
 // ...
-use Whitecube\NovaFlexibleContent\Concerns\HasFlexible;
+use Wmt\NovaFlexibleContent\Concerns\HasFlexible;
 
 class Home extends Template
 {

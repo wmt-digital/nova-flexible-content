@@ -13,7 +13,7 @@
   <file src="src/Flexible.php">
     <UndefinedClass>
       <code>$model</code>
-      <code>\Whitecube\NovaPage\Pages\Template</code>
+      <code>\Wmt\NovaPage\Pages\Template</code>
     </UndefinedClass>
   </file>
   <file src="src/Layouts/Collection.php">
