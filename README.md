@@ -1,17 +1,15 @@
 # ![Laravel Nova Flexible Content](https://github.com/wmt-digital-dev/nova-flexible-content/raw/master/title.png)
 
-![](https://img.shields.io/github/release/whitecube/nova-flexible-content.svg?style=flat)
-[![](https://img.shields.io/packagist/dt/whitecube/nova-flexible-content.svg?colorB=green&style=flat)](https://packagist.org/packages/whitecube/nova-flexible-content)
-[![](https://img.shields.io/github/license/whitecube/nova-flexible-content.svg?style=flat)](https://github.com/wmt-digital-dev/nova-flexible-content/blob/master/LICENSE)
+![](https://img.shields.io/github/release/wmt-digital-dev/nova-flexible-content.svg?style=flat)
+[![](https://img.shields.io/packagist/dt/wmt-digital-dev/nova-flexible-content.svg?colorB=green&style=flat)](https://packagist.org/packages/wmt-digital-dev/nova-flexible-content)
+[![](https://img.shields.io/github/license/wmt-digital-dev/nova-flexible-content.svg?style=flat)](https://github.com/wmt-digital-dev/nova-flexible-content/blob/master/LICENSE)
 
 An easy & complete Flexible Field for Laravel Nova, perfect for repeated and flexible field groups.
-
-![Laravel Nova Flexible Content in action](https://user-images.githubusercontent.com/9298484/164532562-6e4e4179-8a53-470c-97c8-237e9a2c2ebb.gif)
 
 ## Disclaimer
 
 This package is an independent fork of Laravel Nova Flexible Content, which is developed independently.
-Thanks to the [original author](https://github.com/wmt-digital-dev/nova-flexible-content) for developing the original package.
+Thanks to the [original author](https://github.com/whitecube/nova-flexible-content) for developing the original package.
 You can create issue, but we only maintain this package to meet our needs, so any functionality that we don't personally require may be rejected.
 
 ### Install
@@ -63,7 +61,6 @@ public function fields(Request $request)
     ];
 }
 ```
-![Example of Flexible layouts](https://user-images.githubusercontent.com/9298484/164533823-1b1b4934-75b8-49f2-92a0-a54812ccf463.png)
 
 
 #### Customizing the button label
@@ -75,12 +72,10 @@ Flexible::make('Content')
     ->button('Add something amazing!');
 ```
 
-![Add something amazing](https://user-images.githubusercontent.com/9298484/164544726-2a2b1ce5-aa19-489c-abee-b877e7e8d445.png)
-
 
 ### Using Flexible values in views
 
-If you are using Laravel 6 and under, or don't want to use casts, please [use an accessor on your model with the HasFlexible trait](https://whitecube.github.io/nova-flexible-content/#/?id=with-the-hasflexible-trait).
+If you are using Laravel 6 and under, or don't want to use casts, please [use an accessor on your model with the HasFlexible trait](https://wmt-digital-dev.github.io/nova-flexible-content/#/?id=with-the-hasflexible-trait).
 
 Laravel 7 brings custom casts to the table, and flexible content fields are the perfect use case for them. The field stores its values as a single JSON string, meaning this string needs to be parsed before it can be used in your application. This can be done trivially by using the `FlexibleCast` class in this package:
 
@@ -114,7 +109,7 @@ class MyFlexibleCast extends FlexibleCast
 }
 ```
 
-If you need more control, you can [override the `getLayoutMappings` method](https://whitecube.github.io/nova-flexible-content/#/?id=having-more-control-over-the-layout-mappings) instead.
+If you need more control, you can [override the `getLayoutMappings` method](https://wmt-digital-dev.github.io/nova-flexible-content/#/?id=having-more-control-over-the-layout-mappings) instead.
 
 #### The Layouts Collection
 
@@ -142,17 +137,17 @@ When using the Flexible Content field, you'll quickly come across of some use ca
 
 ### Custom Layout Classes
 
-Sometimes, `addLayout` definitions can get quite long, or maybe you want them to be shared with other `Flexible` fields. The answer to this is to extract your Layout into its own class. [See the docs for more information on this](https://whitecube.github.io/nova-flexible-content/#/?id=custom-layout-classes).
+Sometimes, `addLayout` definitions can get quite long, or maybe you want them to be shared with other `Flexible` fields. The answer to this is to extract your Layout into its own class. [See the docs for more information on this](https://wmt-digital-dev.github.io/nova-flexible-content/#/?id=custom-layout-classes).
 
 ### Predefined Preset Classes
 
-In addition to reusable Layout classes, you can go a step further and create `Preset` classes for your Flexible fields. These allow you to reuse your whole Flexible field anywhere you want. They also make it easier to make your Flexible fields dynamic, for example if you want to add Layouts conditionally. And last but not least, they also have the added benefit of cleaning up your Nova Resource classes, if your Flexible field has a lot of `addLayout` definitions. [See the docs for more information on this](https://whitecube.github.io/nova-flexible-content/#/?id=predefined-preset-classes).
+In addition to reusable Layout classes, you can go a step further and create `Preset` classes for your Flexible fields. These allow you to reuse your whole Flexible field anywhere you want. They also make it easier to make your Flexible fields dynamic, for example if you want to add Layouts conditionally. And last but not least, they also have the added benefit of cleaning up your Nova Resource classes, if your Flexible field has a lot of `addLayout` definitions. [See the docs for more information on this](https://wmt-digital-dev.github.io/nova-flexible-content/#/?id=predefined-preset-classes).
 
 ### Custom Resolver Classes
 
 By default, the field takes advantage of a **JSON column** on your model's table. In some cases, you'd really like to use this field, but for some reason a JSON attribute is just not the way to go. For example, you could want to store the values in another table (meaning you'll be using the Flexible Content field instead of a traditional BelongsToMany or HasMany field). No worries, we've got you covered!
 
-Tell the field how to store and retrieve its content by creating your own Resolver class, which basically just contains two simple methods: `get` and `set`. [See the docs for more information on this](https://whitecube.github.io/nova-flexible-content/#/?id=custom-resolver-classes).
+Tell the field how to store and retrieve its content by creating your own Resolver class, which basically just contains two simple methods: `get` and `set`. [See the docs for more information on this](https://wmt-digital-dev.github.io/nova-flexible-content/#/?id=custom-resolver-classes).
 
 ### Usage with nova-page
 
@@ -174,13 +169,12 @@ class Home extends Template
 }
 ```
 
-## 💖 Sponsorships
-
-If you are reliant on this package in your production applications, consider [sponsoring us](https://github.com/sponsors/whitecube)! It is the best way to help us keep doing what we love to do: making great open source software.
-
 ## Contributing
 
-Feel free to suggest changes, ask for new features or fix bugs yourself. We're sure there are still a lot of improvements that could be made, and we would be very happy to merge useful pull requests.
+This package is an independent fork of Laravel Nova Flexible Content, which is developed independently.
+Thanks to the original author for developing the main package.
+You can contribute the package, but we only maintain this package to meet our needs. 
+So any functionality that we don't personally require may be rejected.
 
 Thanks!
 
@@ -189,10 +183,3 @@ Thanks!
 When adding a new feature or fixing a bug, please add corresponding unit tests. The current set of tests is limited, but every unit test added will improve the quality of the package.
 
 Run PHPUnit by calling `composer test`.
-
-## Made with ❤️ for open source
-
-At [Whitecube](https://www.whitecube.be) we use a lot of open source software as part of our daily work.
-So when we have an opportunity to give something back, we're super excited!
-
-We hope you will enjoy this small contribution from us and would love to [hear from you](mailto:hello@whitecube.be) if you find it useful in your projects. Follow us on [Twitter](https://twitter.com/whitecube_be) for more updates!
