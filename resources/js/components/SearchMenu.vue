@@ -24,7 +24,7 @@
                              :show-options="true"
                              :searchable="true"
                              ref="select"
-                        ></Multiselect>
+                        />
                     </div>
                 </div>
             </div>
@@ -110,6 +110,6 @@
 
 <style lang="scss">
 .flexible-search-menu-multiselect {
-  @import "@vueform/multiselect/themes/default.scss";
+  @import "@vueform/multiselect/themes/default.css";
 }
 </style>

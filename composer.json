@@ -67,9 +67,7 @@
     "sort-packages": true
   },
   "scripts": {
-    "psalm": "psalm --find-unused-psalm-suppress --output-format=phpstorm",
-    "psalm-update-baseline": "psalm --set-baseline=psalm-baseline.xml",
-    "test": "phpunit --colors=always tests",
+    "test": "./vendor/bin/phpunit --colors=always --configuration=phpunit.xml.dist tests",
     "fix-style": "./vendor/bin/pint"
   }
 }
