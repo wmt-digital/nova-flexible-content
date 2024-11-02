@@ -43,7 +43,7 @@ init-test-database:	## Init test database
 	$(DB) psql -U ${DB_USERNAME} -d postgres -c "create database app_test;"
 
 test: ## Run the tests
-	$(APP) php artisan test $f
+	$(APP) vendor/bin/phpunit
 
 cs-fix-dry: ## Dry-run php-cs-fixer
 	$(APP_TTY) php vendor/bin/pint --config pint.json --test

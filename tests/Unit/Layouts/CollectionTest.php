@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Layouts;
+namespace Wmt\NovaFlexibleContent\Tests\Unit\Layouts;
 
 use PHPUnit\Framework\TestCase;
 use Wmt\NovaFlexibleContent\Layouts\Collection;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests;
+namespace Wmt\NovaFlexibleContent\Tests;
 
 use Illuminate\Support\Facades\Http;
 use Wmt\NovaFlexibleContent\FieldServiceProvider;
