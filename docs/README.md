@@ -15,6 +15,32 @@ An easy & complete Flexible Field for Laravel Nova, perfect for repeated and fle
 The Flexible field can be used in various ways and for different purposes, but in most cases you'll only need a few of
 its capabilities. Here's how to get started really quickly.
 
+## Differences from original package
+
+### Dropdown overflow fix
+
+Fixed a bug where the dropdown menu overlaps with the Nova container using popperjs
+
+![](./assets/dropdown-fix.png)
+
+### Save collapse state for the layouts
+
+Saving the current state of open/closed layout to local storage using Collapsable mixin supplied with laravel-nova
+
+![](./assets/save-collapse-state.mp4)
+
+### Add layout after the current
+
+Ability to add the content block after the current content block
+
+![](./assets/add-after-current.mp4)
+
+### Extra
+
+- Fixed bug of drag & drop functionality - item is moved to the position where this block really should be
+- Multiselect search dropdown is now enabled by default as a more convenient use case
+- Selecting a block with an error and expand the block if it has been collapsed
+
 ### Install
 
 ```
@@ -501,7 +527,7 @@ public function set($model, $attribute, $groups)
 By popular demand, we have added compatibility with the advanced-nova-media-library field.
 This requires a few extra steps, as follows:
 
-1. You must use a [custom layout class](https://whitecube.github.io/nova-flexible-content/#/?id=custom-layout-classes).
+1. You must use a [custom layout class](https://wmt-digital-dev.github.io/nova-flexible-content/#/?id=custom-layout-classes).
 2. Your custom layout class must implement `Spatie\MediaLibrary\HasMedia` and use the
    `Wmt\NovaFlexibleContent\Concerns\HasMediaLibrary` trait.
 3. The parent model must implement `Spatie\MediaLibrary\HasMedia` and use the `Spatie\MediaLibrary\InteractsWithMedia`
@@ -546,13 +572,6 @@ class SliderLayout extends Layout implements HasMedia
 ```
 
 You can now call `getMedia('images')` on your `SliderLayout` instance.
-
-## Contributing
-
-Feel free to suggest changes, ask for new features or fix bugs yourself. We're sure there are still a lot of
-improvements that could be made and we would be very happy to merge useful pull requests.
-
-Thanks!
 
 ### Unit tests
 

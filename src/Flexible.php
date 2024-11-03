@@ -77,7 +77,7 @@ class Flexible extends Field
         $this->button(__('Add layout'));
 
         // The original menu as default
-        $this->menu('flexible-drop-menu');
+        $this->menu('flexible-search-menu');
 
         $this->hideFromIndex();
     }

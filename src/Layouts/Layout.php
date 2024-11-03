@@ -274,7 +274,7 @@ class Layout implements Arrayable, ArrayAccess, JsonSerializable, LayoutInterfac
      */
     public function duplicateAndHydrate($key, array $attributes = [])
     {
-        $fields = $this->fields->map(function ($field) {
+        $fields = $this->fields->map(function (Field $field) {
             return $this->cloneField($field);
         });
 
