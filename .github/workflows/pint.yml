@@ -30,7 +30,7 @@ jobs:
           composer install --no-interaction --no-progress --no-scripts
 
       - name: Retrieve Pint’s cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ./.pint.cache
           key: ${{ runner.os }}-pint-cache-${{ hashFiles('.pint.cache', './composer.json') }}
