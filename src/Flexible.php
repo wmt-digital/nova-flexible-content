@@ -247,11 +247,9 @@ class Flexible extends Field
     /**
      * Resolve the field's value.
      *
-     * @param mixed $resource
-     * @param string|null $attribute
-     * @return void
+     * @param  \Laravel\Nova\Resource|\Illuminate\Database\Eloquent\Model|object|array  $resource
      */
-    public function resolve($resource, $attribute = null)
+    public function resolve($resource, ?string $attribute = null): void
     {
         $attribute = $attribute ?? $this->attribute;
 
@@ -263,13 +261,11 @@ class Flexible extends Field
     }
 
     /**
-     * Resolve the field's value for display on index and detail views.
+     * Resolve the field's value for display.
      *
-     * @param mixed $resource
-     * @param string|null $attribute
-     * @return void
+     * @param  \Laravel\Nova\Resource|\Illuminate\Database\Eloquent\Model|object|array  $resource
      */
-    public function resolveForDisplay($resource, $attribute = null)
+    public function resolveForDisplay($resource, ?string $attribute = null): void
     {
         $attribute = $attribute ?? $this->attribute;
 
@@ -486,7 +482,7 @@ class Flexible extends Field
      *
      * @return array
      */
-    public function getRules(NovaRequest $request)
+    public function getRules(NovaRequest $request): array
     {
         return parent::getRules($request);
     }
@@ -496,7 +492,7 @@ class Flexible extends Field
      *
      * @return array|string
      */
-    public function getCreationRules(NovaRequest $request)
+    public function getCreationRules(NovaRequest $request): array
     {
         return array_merge_recursive(
             parent::getCreationRules($request),
@@ -509,7 +505,7 @@ class Flexible extends Field
      *
      * @return array
      */
-    public function getUpdateRules(NovaRequest $request)
+    public function getUpdateRules(NovaRequest $request): array
     {
         return array_merge_recursive(
             parent::getUpdateRules($request),
@@ -523,7 +519,7 @@ class Flexible extends Field
      * @param string $specificty
      * @return array
      */
-    protected function getFlexibleRules(NovaRequest $request, $specificty)
+    protected function getFlexibleRules(NovaRequest $request, $specificty): array
     {
         if (!($value = $this->extractValue($request, $this->attribute))) {
             return [];
@@ -554,7 +550,7 @@ class Flexible extends Field
      * @param string $specificty
      * @return array
      */
-    protected function generateRules(NovaRequest $request, $value, $specificty)
+    protected function generateRules(NovaRequest $request, $value, $specificty): array
     {
         return collect($value)->map(function ($item, $key) use ($request, $specificty) {
             $group = $this->newGroup($item['layout'], $item['key']);
@@ -577,7 +573,7 @@ class Flexible extends Field
      *
      * @return array
      */
-    protected function getCleanedRules(array $rules)
+    protected function getCleanedRules(array $rules): array
     {
         return array_map(function ($field) {
             return $field['rules'];
@@ -590,7 +586,7 @@ class Flexible extends Field
      *
      * @return void
      */
-    protected static function registerValidationKeys(array $rules)
+    protected static function registerValidationKeys(array $rules): void
     {
         $validatedKeys = array_map(function ($field) {
             return $field['attribute'];
